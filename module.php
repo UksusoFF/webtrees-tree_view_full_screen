@@ -12,7 +12,8 @@ use UksusoFF\WebtreesModules\TreeViewFullScreen\Helpers\TemplateHelper as Templa
 
 class TreeViewFullScreen extends AbstractModule implements ModuleMenuInterface
 {
-    const CUSTOM_VERSION = '0.1';
+    const CUSTOM_VERSION = '0.2';
+    const CUSTOM_NAME = 'tree_view_full_screen';
     const CUSTOM_WEBSITE = 'https://github.com/UksusoFF/webtrees-tree_view_full_screen';
 
     protected $directory;
@@ -22,23 +23,23 @@ class TreeViewFullScreen extends AbstractModule implements ModuleMenuInterface
 
     public function __construct()
     {
-        parent::__construct('tree_view_full_screen');
+        parent::__construct(self::CUSTOM_NAME);
 
-        $this->directory = WT_MODULES_DIR . $this->getName();
+        $this->directory = WT_MODULES_DIR . self::CUSTOM_NAME;
 
         $loader = new ClassLoader();
         $loader->addPsr4('UksusoFF\\WebtreesModules\\TreeViewFullScreen\\', $this->directory);
         $loader->register();
 
-        $this->route = new Route(WT_MODULES_DIR, $this->getName(), self::CUSTOM_VERSION);
-        $this->template = new Template($this->directory . '/templates/');
+        $this->route = new Route($this->directory, self::CUSTOM_NAME, self::CUSTOM_VERSION);
+        $this->template = new Template($this->directory);
     }
 
     /** {@inheritdoc} */
     public function getName()
     {
         // warning: Must match (case-sensitive!) the directory name!
-        return 'tree_view_full_screen';
+        return self::CUSTOM_NAME;
     }
 
     /** {@inheritdoc} */
@@ -67,9 +68,9 @@ class TreeViewFullScreen extends AbstractModule implements ModuleMenuInterface
         global $controller;
 
         if (Theme::theme()->themeId() !== '_administration') {
-            $controller->addExternalJavascript($this->route->getResourcePath('/_scripts/module.js'))
-                ->addInlineJavascript($this->template->output('css_include.tpl', [
-                    'cssPath' => $this->route->getResourcePath('/_styles/module.css'),
+            $controller->addExternalJavascript($this->route->getScriptPath('module.js'))
+                ->addInlineJavascript($this->template->output('css_include.js', [
+                    'cssPath' => $this->route->getStylePath('module.css'),
                 ]), BaseController::JS_PRIORITY_LOW);
         }
 

@@ -4,13 +4,13 @@ namespace UksusoFF\WebtreesModules\TreeViewFullScreen\Helpers;
 
 class RouteHelper
 {
-    protected $modulesDir;
+    protected $path;
     protected $moduleName;
     protected $moduleVersion;
 
-    public function __construct($modulesDir, $moduleName, $moduleVersion)
+    public function __construct($path, $moduleName, $moduleVersion)
     {
-        $this->modulesDir = $modulesDir;
+        $this->path = $path;
         $this->moduleName = $moduleName;
         $this->moduleVersion = $moduleVersion;
     }
@@ -18,13 +18,36 @@ class RouteHelper
     /**
      * @param string $resource
      * @param array $query
+     *
      * @return string
      */
-    public function getResourcePath($resource, $query = [])
+    private function getResourcePath($resource, $query = [])
     {
-        return WT_MODULES_DIR . $this->moduleName . $resource . '?' .
+        return "{$this->path}/_resources/{$resource}" . '?' .
             http_build_query(array_merge($query, [
                 'v' => $this->moduleVersion,
             ]));
+    }
+
+    /**
+     * @param string $script
+     * @param array $query
+     *
+     * @return string
+     */
+    public function getScriptPath($script, $query = [])
+    {
+        return $this->getResourcePath("scripts/$script", $query);
+    }
+
+    /**
+     * @param string $style
+     * @param array $query
+     *
+     * @return string
+     */
+    public function getStylePath($style, $query = [])
+    {
+        return $this->getResourcePath("styles/$style", $query);
     }
 }
