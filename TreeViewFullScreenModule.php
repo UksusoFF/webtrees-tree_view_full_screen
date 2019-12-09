@@ -3,18 +3,15 @@
 namespace UksusoFF\WebtreesModules\TreeViewFullScreen;
 
 use Fisharebest\Webtrees\Module\AbstractModule;
-use Fisharebest\Webtrees\Module\ModuleConfigInterface;
-use Fisharebest\Webtrees\Module\ModuleConfigTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomTrait;
 use Fisharebest\Webtrees\Module\ModuleGlobalInterface;
 use Fisharebest\Webtrees\Module\ModuleGlobalTrait;
 use Fisharebest\Webtrees\View;
 
-class TreeViewFullScreenModule extends AbstractModule implements ModuleCustomInterface, ModuleConfigInterface, ModuleGlobalInterface
+class TreeViewFullScreenModule extends AbstractModule implements ModuleCustomInterface, ModuleGlobalInterface
 {
     use ModuleCustomTrait;
-    use ModuleConfigTrait;
     use ModuleGlobalTrait;
 
     private $name = 'tree_view_full_screen';
@@ -56,11 +53,6 @@ class TreeViewFullScreenModule extends AbstractModule implements ModuleCustomInt
     public function resourcesFolder(): string
     {
         return __DIR__ . '/_resources/';
-    }
-
-    public function getConfigLink(): string
-    {
-        return '#';
     }
 
     public function headContent(): string
