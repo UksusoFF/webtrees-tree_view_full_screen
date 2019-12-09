@@ -14,7 +14,7 @@ function tvfsInstall() {
 }
 
 $(document).bind('ajaxComplete', function(event, xhr, settings) {
-    if (settings.url.indexOf('&action=ajax&module=tree') !== -1) {
+    if (settings.url.indexOf('route=%2Fmodule%2Ftree') !== -1 || settings.url.indexOf('/module/tree') !== -1) {
         tvfsInstall();
     }
 });
