@@ -52,7 +52,7 @@ class TreeViewFullScreenModule extends AbstractModule implements ModuleCustomInt
 
     public function resourcesFolder(): string
     {
-        return __DIR__ . '/../resources/';
+        return __DIR__ . '/../../resources/';
     }
 
     public function headContent(): string

@@ -3,5 +3,5 @@
 use Composer\Autoload\ClassLoader;
 
 $loader = new ClassLoader();
-$loader->addPsr4('UksusoFF\\WebtreesModules\\TreeViewFullScreen\\', __DIR__);
+$loader->addPsr4('UksusoFF\\WebtreesModules\\TreeViewFullScreen\\', __DIR__ . '/src');
 $loader->register();
