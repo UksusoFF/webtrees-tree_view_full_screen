@@ -1,6 +1,6 @@
 <?php
 
-namespace UksusoFF\WebtreesModules\TreeViewFullScreen;
+namespace UksusoFF\WebtreesModules\TreeViewFullScreen\Modules;
 
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
@@ -52,7 +52,7 @@ class TreeViewFullScreenModule extends AbstractModule implements ModuleCustomInt
 
     public function resourcesFolder(): string
     {
-        return __DIR__ . '/_resources/';
+        return __DIR__ . '/../resources/';
     }
 
     public function headContent(): string
