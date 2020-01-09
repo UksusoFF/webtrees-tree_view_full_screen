@@ -19,4 +19,4 @@ Tested with 2.0 version and Webtrees Theme.
 You can use [0.2 version](https://github.com/UksusoFF/webtrees-tree_view_full_screen/releases/tag/v0.2) with webtrees 1.7.x version and Webtrees Theme, [JustLight Theme](http://www.justcarmen.nl/themes/justlight-theme/), [JustBlack Theme](https://github.com/JustCarmen/justblack), [Rural Theme](https://www.webtrees.net/index.php/en/add-ons/download/4-themes/119-rural-theme).
 
 ## Result
-![image](https://user-images.githubusercontent.com/1931442/39943803-3ec03e54-5575-11e8-9feb-d01d8cf09c8d.png)
+![tvfs_screenshot](https://user-images.githubusercontent.com/1931442/72089977-8ae10d00-3326-11ea-8e65-d031f984c0fc.png)
