@@ -1,5 +1,5 @@
 function tvfsInstall() {
-    var $treeView = $('#tvTab_out'),
+    var $treeView = $('#tvTab_out, #tv_out'),
         $treeTools = $treeView.find('#tv_tools ul');
 
     if ($treeView.length && !$treeTools.find('li#tvfs').length) {
@@ -25,4 +25,11 @@ $('#tabs').on('tabsload', function() {
 
 $('#main').on('show.bs.collapse shown.bs.collapse', function() {
     tvfsInstall();
+});
+
+$(document).ready(function() {
+    var $page = $('.wt-chart-interactive');
+    if ($page.length > 0) {
+        tvfsInstall();
+    }
 });
