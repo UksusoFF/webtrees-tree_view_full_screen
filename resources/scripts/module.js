@@ -29,7 +29,6 @@ $('#main').on('show.bs.collapse shown.bs.collapse', function() {
 
 $(document).ready(function() {
     var $page = $('.wt-chart-interactive');
-    console.log($page);
     if ($page.length > 0) {
         tvfsInstall();
     }
