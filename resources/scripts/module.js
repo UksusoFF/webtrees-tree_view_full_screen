@@ -14,7 +14,7 @@ function tvfsInstall() {
 }
 
 $(document).bind('ajaxComplete', function(event, xhr, settings) {
-    if (settings.url.indexOf('route=%2Fmodule%2Ftree') !== -1 || settings.url.indexOf('/module/tree') !== -1) {
+    if (settings.url.indexOf('module%2Ftree') !== -1 || settings.url.indexOf('/module/tree') !== -1) {
         tvfsInstall();
     }
 });
@@ -29,6 +29,7 @@ $('#main').on('show.bs.collapse shown.bs.collapse', function() {
 
 $(document).ready(function() {
     var $page = $('.wt-chart-interactive');
+    console.log($page);
     if ($page.length > 0) {
         tvfsInstall();
     }
