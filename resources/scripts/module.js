@@ -1,5 +1,5 @@
 function tvfsInstall() {
-    var $treeView = $('#tvTab_out, #tv_out'),
+    var $treeView = $('#tvTab_out, #tv_out, #tree_out'),
         $treeTools = $treeView.find('#tv_tools ul');
 
     if ($treeView.length && !$treeTools.find('li#tvfs').length) {
@@ -7,6 +7,7 @@ function tvfsInstall() {
 
         $fullScreenButton.on('click', function() {
             $treeView.parent().toggleClass('tvfs-full-screen');
+            $treeView.closest('.wt-ajax-load').toggleClass('tvfs-full-screen');
         });
 
         $treeTools.append($fullScreenButton);
@@ -14,7 +15,14 @@ function tvfsInstall() {
 }
 
 $(document).bind('ajaxComplete', function(event, xhr, settings) {
-    if (settings.url.indexOf('module%2Ftree') !== -1 || settings.url.indexOf('/module/tree') !== -1) {
+    if (
+        settings.url.indexOf('module%2Ftree') !== -1 ||
+        settings.url.indexOf('/module/tree') !== -1 ||
+        settings.url.indexOf('%2Fmy-page-block') !== -1 ||
+        settings.url.indexOf('/my-page-block') !== -1 ||
+        settings.url.indexOf('%2Ftree-page-block') !== -1 ||
+        settings.url.indexOf('/tree-page-block') !== -1
+    ) {
         tvfsInstall();
     }
 });

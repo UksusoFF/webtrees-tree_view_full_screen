@@ -20,7 +20,8 @@
   min-height: 100vh !important;
 }
 [dir] div.tvfs-full-screen #tv_out,
-[dir] div.tvfs-full-screen #tvTab_out {
+[dir] div.tvfs-full-screen #tvTab_out,
+[dir] div.tvfs-full-screen #tree_out {
   height: 100vh !important;
   min-height: 100vh !important;
 }
