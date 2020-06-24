@@ -17,3 +17,9 @@ TreeViewHandler.prototype.setComplete = function() {
     this.setCompleteOriginal();
     this.installFullScreen();
 };
+
+$(document).ready(function() {
+    if (typeof tvHandler != 'undefined') {
+        tvHandler.installFullScreen();
+    }
+});
