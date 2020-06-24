@@ -1,43 +1,19 @@
-function tvfsInstall() {
-    var $treeView = $('#tvTab_out, #tv_out, #tree_out'),
-        $treeTools = $treeView.find('#tv_tools ul');
+TreeViewHandler.prototype.installFullScreen = function() {
+    var self = this;
+    var $treeTools = self.toolbox.find('ul');
+    var $button = $('<li id="tvfs" class="tv_button tvfs-switch-full-screen" title="Toggle FullScreen View"></li>');
 
-    if ($treeView.length && !$treeTools.find('li#tvfs').length) {
-        var $fullScreenButton = $('<li id="tvfs" class="tv_button tvfs-switch-full-screen" title="Toggle FullScreen View"></li>');
+    $button.on('click', function(e) {
+        self.treeview.parent().toggleClass('tvfs-full-screen');
+        self.treeview.closest('.wt-ajax-load').toggleClass('tvfs-full-screen');
+    });
 
-        $fullScreenButton.on('click', function() {
-            $treeView.parent().toggleClass('tvfs-full-screen');
-            $treeView.closest('.wt-ajax-load').toggleClass('tvfs-full-screen');
-        });
+    $treeTools.append($button);
+};
 
-        $treeTools.append($fullScreenButton);
-    }
-}
+TreeViewHandler.prototype.setCompleteOriginal = TreeViewHandler.prototype.setComplete;
 
-$(document).bind('ajaxComplete', function(event, xhr, settings) {
-    if (
-        settings.url.indexOf('module%2Ftree') !== -1 ||
-        settings.url.indexOf('/module/tree') !== -1 ||
-        settings.url.indexOf('%2Fmy-page-block') !== -1 ||
-        settings.url.indexOf('/my-page-block') !== -1 ||
-        settings.url.indexOf('%2Ftree-page-block') !== -1 ||
-        settings.url.indexOf('/tree-page-block') !== -1
-    ) {
-        tvfsInstall();
-    }
-});
-
-$('#tabs').on('tabsload', function() {
-    tvfsInstall();
-});
-
-$('#main').on('show.bs.collapse shown.bs.collapse', function() {
-    tvfsInstall();
-});
-
-$(document).ready(function() {
-    var $page = $('.wt-chart-interactive');
-    if ($page.length > 0) {
-        tvfsInstall();
-    }
-});
+TreeViewHandler.prototype.setComplete = function() {
+    this.setCompleteOriginal();
+    this.installFullScreen();
+};
