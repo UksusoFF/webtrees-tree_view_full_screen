@@ -1,0 +1,24 @@
+{
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "phpstan/phpstan": "^0.12.75",
+        "uksusoff/php-cs-fixer-config": "^0.4.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/UksusoFF/php-cs-fixer-config"
+        }
+    ],
+    "scripts": {
+        "cs:fix": [
+            "vendor/bin/php-cs-fixer fix . --config=.php_cs --allow-risky=yes"
+        ],
+        "ca:run": [
+            "vendor/bin/phpstan analyse src --autoload-file=../../vendor/autoload.php --level=5"
+        ]
+    }
+}
