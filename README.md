@@ -7,7 +7,7 @@ This module just add full screen button for interactive tree view tab with [webt
 ## System requirements
 Same as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-Tested with 2.0 version and Webtrees Theme.
+Tested with 2.0.11 version and Webtrees Theme.
 
 ## Installation
 1. Download the [latest release](https://github.com/UksusoFF/webtrees-tree_view_full_screen/releases/latest)
