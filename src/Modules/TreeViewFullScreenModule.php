@@ -16,7 +16,7 @@ class TreeViewFullScreenModule extends AbstractModule implements ModuleCustomInt
 
     private $name = 'tree_view_full_screen';
 
-    public const CUSTOM_VERSION = '0.8';
+    public const CUSTOM_VERSION = '0.9';
 
     public const CUSTOM_WEBSITE = 'https://github.com/UksusoFF/webtrees-tree_view_full_screen';
 
