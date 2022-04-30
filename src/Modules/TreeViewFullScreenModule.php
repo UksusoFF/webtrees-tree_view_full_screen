@@ -16,7 +16,7 @@ class TreeViewFullScreenModule extends AbstractModule implements ModuleCustomInt
 
     private $name = 'tree_view_full_screen';
 
-    public const CUSTOM_VERSION = '0.9';
+    public const CUSTOM_VERSION = '1.0.0';
 
     public const CUSTOM_WEBSITE = 'https://github.com/UksusoFF/webtrees-tree_view_full_screen';
 
@@ -58,14 +58,14 @@ class TreeViewFullScreenModule extends AbstractModule implements ModuleCustomInt
     public function headContent(): string
     {
         return view("{$this->name()}::style", [
-            'path' => $this->assetUrl('styles/module.css'),
+            'path' => $this->assetUrl('build/module.min.css'),
         ]);
     }
 
     public function bodyContent(): string
     {
         return view("{$this->name()}::script", [
-            'path' => $this->assetUrl('scripts/module.js'),
+            'path' => $this->assetUrl('build/module.min.js'),
         ]);
     }
 }
