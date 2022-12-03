@@ -4,6 +4,9 @@
 
 This module just add full screen button for interactive tree view tab with [webtrees](https://www.webtrees.net/).
 
+## Warning
+This function was implemented in [webtrees 2.1.8](https://github.com/fisharebest/webtrees/pull/4611). So module is abandoned.
+
 ## System requirements
 Same as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
